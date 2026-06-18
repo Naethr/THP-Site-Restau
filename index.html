@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo Bistrot Lab</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a class="brand" href="#" aria-label="Neo Bistrot Lab - Accueil">Neo Bistrot Lab</a>
+        <div class="tabs" role="tablist" aria-label="Sections du restaurant">
+          <button class="tab-button active" type="button" data-tab="home" role="tab" aria-selected="true">
+            Accueil
+          </button>
+          <button class="tab-button" type="button" data-tab="menu" role="tab" aria-selected="false">
+            Menu
+          </button>
+          <button class="tab-button" type="button" data-tab="photos" role="tab" aria-selected="false">
+            Photos
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Bistrot foodtech de saison</p>
+          <h1>La cuisine locale passée au filtre quantic deep-learning.</h1>
+          <p>
+            Un restaurant de quartier qui mélange produits frais, recettes bistrotières et humour technologique,
+            sans perdre le goût des choses simples.
+          </p>
+        </div>
+      </section>
+
+      <section class="tab-panel active" id="home" data-panel="home" role="tabpanel">
+        <div class="two-column">
+          <div class="intro-card">
+            <h2>Un bistrot branché, mais pas compliqué</h2>
+            <p>
+              Neo Bistrot Lab imagine une carte courte, joyeuse et renouvelée selon les arrivages.
+              Ici, la foodtech reste un prétexte : le vrai sujet, ce sont les légumes de saison,
+              les producteurs locaux et les assiettes lisibles.
+            </p>
+            <p class="fresh-note">
+              Produits frais, bio quand c'est pertinent, locaux autant que possible, et toujours choisis selon la saison.
+            </p>
+          </div>
+
+          <img
+            class="restaurant-image"
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+            alt="Salle moderne de restaurant avec tables dressées et ambiance chaleureuse"
+          />
+        </div>
+      </section>
+
+      <section class="tab-panel" id="menu" data-panel="menu" role="tabpanel" hidden>
+        <div class="menu-card">
+          <div>
+            <p class="eyebrow">Menu génératif</p>
+            <h2>Suggestion du chef algorithmique</h2>
+          </div>
+          <p class="menu-item" id="generated-menu"></p>
+          <button class="primary-button" type="button" id="change-menu-button">
+            Marre de ce menu ? Changez-le !
+          </button>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="photos" data-panel="photos" role="tabpanel" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Galerie</p>
+          <h2>Ambiance du lieu</h2>
+        </div>
+
+        <div class="photo-grid" id="photo-grid" aria-label="Galerie réorganisable">
+          <article class="photo-card" draggable="true">
+            <img
+              class="photo-image"
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Salle de restaurant branché avec comptoir et lumière douce"
+              draggable="false"
+            />
+            <h3>Salle du restaurant</h3>
+          </article>
+          <article class="photo-card" draggable="true">
+            <img
+              class="photo-image"
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Assiette signature gastronomique servie au restaurant"
+              draggable="false"
+            />
+            <h3>Assiette signature</h3>
+          </article>
+          <article class="photo-card" draggable="true">
+            <img
+              class="photo-image"
+              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Cuisine ouverte de restaurant avec préparation de plats"
+              draggable="false"
+            />
+            <h3>Cuisine ouverte</h3>
+          </article>
+          <article class="photo-card" draggable="true">
+            <img
+              class="photo-image"
+              src="https://images.unsplash.com/photo-1529316275402-0462fcc4abd6?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Terrasse du bistrot avec parasols, plantes et tables"
+              draggable="false"
+            />
+            <h3>Terrasse</h3>
+          </article>
+          <article class="photo-card" draggable="true">
+            <img
+              class="photo-image"
+              src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Dessert maison aux fruits présenté dans une assiette"
+              draggable="false"
+            />
+            <h3>Dessert maison</h3>
+          </article>
+          <article class="photo-card" draggable="true">
+            <img
+              class="photo-image"
+              src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+              alt="Équipe de cuisine en train de préparer des plats"
+              draggable="false"
+            />
+            <h3>Équipe en cuisine</h3>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="overlay" id="overlay" hidden></div>
+    <aside class="exit-popup" id="exit-popup" aria-modal="true" role="dialog" aria-labelledby="popup-title" hidden>
+      <button class="close-button" type="button" id="close-popup-button" aria-label="Fermer la popup">×</button>
+      <p class="eyebrow">Avant de partir</p>
+      <h2 id="popup-title">Recevez nos meilleurs menus de la semaine</h2>
+      <p>
+        Une newsletter visuelle, sans API pour cet exercice, avec les idées de plats les plus absurdes du laboratoire.
+      </p>
+      <form class="newsletter-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="vous@example.com" />
+        <button class="primary-button" type="button">S'inscrire</button>
+      </form>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
